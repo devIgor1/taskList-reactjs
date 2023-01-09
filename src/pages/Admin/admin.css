@@ -1,0 +1,76 @@
+.admin-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.admin-container textarea {
+  padding: 5px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+}
+
+.btn-register {
+  margin-bottom: 40px;
+}
+
+.list {
+  width: 90%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  background-color: #141414;
+  padding: 14px 8px;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.list p {
+  margin-bottom: 9px;
+}
+
+.list button {
+  font-family: "Poppins", sans-serif;
+  margin: 10px;
+  padding: 5px;
+  border: none;
+}
+
+.btn-edit {
+  background-color: #aca43d;
+}
+
+.btn-edit:hover {
+  background-color: #ffee00;
+}
+
+.btn-delete {
+  margin: 10px;
+  background-color: #008000;
+}
+
+.btn-delete:hover {
+  margin: 10px;
+  background-color: #00ff00;
+}
+
+.btn-logout {
+  font-family: "Poppins", sans-serif;
+  padding: 5px;
+  border-radius: 30px;
+  border: none;
+  background-color: rgba(219, 38, 41, 0.35);
+  color: #fff;
+  position: absolute;
+  bottom: 6%;
+  left: 4%;
+  height: 60px;
+  width: 60px;
+  font-weight: bold;
+  transition: all 0.4s;
+}
+
+.btn-logout:hover {
+  background-color: rgba(219, 38, 41, 1);
+  color: #fff;
+}
