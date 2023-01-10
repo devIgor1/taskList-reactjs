@@ -13,6 +13,7 @@ import {
   deleteDoc,
   updateDoc,
 } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 export default function Admin() {
   const [taskInput, setTaskInput] = useState("");
@@ -29,10 +30,10 @@ export default function Admin() {
         const data = JSON.parse(userDetail);
 
         const taskRef = collection(db, "tasks");
-
         const q = query(
           taskRef,
-          orderBy("created", "desc", where("userId", "==", data?.uid))
+          orderBy("created", "desc"),
+          where("userUid", "==", data?.uid)
         );
 
         const unsub = onSnapshot(q, snapshot => {
@@ -42,10 +43,11 @@ export default function Admin() {
             list.push({
               id: doc.id,
               task: doc.data().task,
-              userId: doc.data().userId,
+              userUid: doc.data().userUid,
             });
           });
 
+          console.log(list);
           setTasks(list);
         });
       }
@@ -57,7 +59,17 @@ export default function Admin() {
   async function handleRegister(e) {
     e.preventDefault();
     if (taskInput === "") {
-      alert("Write your task");
+      toast.error("Write your task!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+
       return;
     }
 
@@ -69,7 +81,7 @@ export default function Admin() {
     await addDoc(collection(db, "tasks"), {
       task: taskInput,
       created: new Date(),
-      userId: user?.uid,
+      userUid: user?.uid,
     })
       .then(() => {
         setTaskInput("");
@@ -80,11 +92,7 @@ export default function Admin() {
   }
 
   async function handleLogout() {
-    await signOut(auth)
-      .then(() => {})
-      .catch(() => {
-        alert("error");
-      });
+    await signOut(auth);
   }
 
   async function deleteTask(id) {
@@ -109,7 +117,7 @@ export default function Admin() {
         setEdit({});
       })
       .catch(() => {
-        alert("error");
+        console.log("error");
       });
   }
 

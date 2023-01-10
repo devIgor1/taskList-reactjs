@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { auth } from "../../FirebaseConnection";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function Home() {
   const [email, setEmail] = useState("");
@@ -18,9 +19,28 @@ export default function Home() {
         //navigate to admin
         .then(() => {
           navigate("/admin", { replace: true });
+          toast.success("Welcome Back! 🥰", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
         })
         .catch(() => {
-          alert("Error");
+          toast.error("User not found", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
         });
     } else {
       alert("Fill in the form correctly!");
