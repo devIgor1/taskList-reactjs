@@ -1,1 +1,2 @@
-﻿# taskList-reactjs
+Mais um projeto finalizado! Fico muito feliz com a minha constância nos estudos, consigo ver claramente minha evolução diariamente, esse projeto é uma Task List (lista de tarefas), foram abordados hooks, sistema de rotas para paginação, autenticação de usuários dentro do banco de dados, abordei muita informação importante do firebase nesse projeto, com ele pude ter uma fixação muito significativa de como inseri-lo dentro de meus projetos.
+![image](https://user-images.githubusercontent.com/88665118/218086940-3c20e84d-bcc6-4c08-80f7-6d3d4f295bf6.png)
